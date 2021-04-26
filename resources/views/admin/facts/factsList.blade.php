@@ -16,12 +16,22 @@
                 <span data-toggle="counter-up">{{$facts->number}}</span>
                 <p><strong>{{$facts->title}}</strong> {{$facts->phrase}}</p>
                 <div class="mt-3">
-                    <a href={{route('factsEdit', $facts->id)}}><button class="btn btn-primary">Edit</button></a>
+                    <div class="mb-2">
+                        <a href={{route('factsEdit', $facts->id)}}><button class="btn btn-primary">Edit</button></a>
+                    </div>
+                    <form method="post" action="{{route('factsDestroy', $facts->id)}}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
                 </div>
               </div>
             </div>
             @endforeach
-  
+          </div>
+
+          <div class="text-center mt-3">
+            <a href={{route('factsCreate')}}><button class="btn btn-warning">Ajouter un élément</button></a>
           </div>
         </div>
 
