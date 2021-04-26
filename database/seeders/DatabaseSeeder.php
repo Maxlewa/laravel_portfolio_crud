@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call([PortfolioSeeder::class]);
         $this->call([ServiceSeeder::class]);
         $this->call([ContactSeeder::class]);
+        $this->call([MailSeeder::class]);
     }
 }

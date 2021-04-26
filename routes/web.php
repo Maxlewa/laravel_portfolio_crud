@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FactController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\PersoController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceController;
@@ -16,6 +18,10 @@ Route::get('/', [FrontController::class, 'home'])->name('home');
 Route::get('/admin', [AdminController::class, 'adminHome'])->name('adminHome');
 
 /* __________________________________ BACK ___________________________________ */
+
+// ---------- MAIL FORM ----------
+
+Route::post('/mail/store', [MailController::class, 'store'])->name('mailStore');
 
 // ---------- ABOUT ----------
 
@@ -78,4 +84,11 @@ Route::put('/services/{id}/update', [ServiceController::class, 'update'])->name(
 // Destroy
 
 Route::delete('/services/{id}/delete', [ServiceController::class, 'destroy'])->name('servicesDestroy');
+
+// ---------- CONTACT ----------
+
+// Edit - Update
+
+Route::get('/contact/{id}/edit', [ContactController::class, 'edit'])->name('contactEdit');
+Route::put('/contact/{id}/update', [ContactController::class, 'update'])->name('contactUpdate');
 

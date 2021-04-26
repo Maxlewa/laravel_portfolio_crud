@@ -26,7 +26,14 @@
         
         <button type="submit" class="btn btn-success">Actualiser</button>
     </form>
-    <div class="text-center mb-5">
-        <a href="{{route('adminHome')}}"><button class="btn btn-primary">Retour</button></a>
+    <div class="d-flex justify-content-center">
+        <form method="post" action="{{route('portfolioDestroy', $portfolio->id)}}" class="mx-2">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+        <div class="mx-2">
+            <a href="{{route('adminHome')}}"><button class="btn btn-primary">Retour</button></a>
+        </div>
     </div>
 @endsection

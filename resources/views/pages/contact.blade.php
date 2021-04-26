@@ -40,7 +40,8 @@
             </div>
   
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <form method="POST" action={{route('mailStore')}} role="form" class="php-email-form">
+                @csrf
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="name">Your Name</label>
@@ -48,19 +49,24 @@
                     <div class="validate"></div>
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="name">Your Email</label>
-                    <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                    <label for="email">Your Email</label>
+                    <input type="email" class="form-control @error ('email') is-invalid @enderror" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                    @error('email')
+                      <span class="invalid-feedback">
+                          <strong>{{$message}}</strong>
+                      </span>
+                    @enderror
                     <div class="validate"></div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="name">Subject</label>
+                  <label for="subject">Subject</label>
                   <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                   <div class="validate"></div>
                 </div>
                 <div class="form-group">
-                  <label for="name">Message</label>
-                  <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                  <label for="message">Message</label>
+                  <textarea class="form-control" rows="10" data-rule="required" data-msg="Please write something for us" name="message" id="message"></textarea>
                   <div class="validate"></div>
                 </div>
                 <div class="mb-3">
@@ -76,3 +82,6 @@
   
         </div>
       </section><!-- End Contact Section -->
+
+
+      {{-- action="forms/contact.php" --}}
