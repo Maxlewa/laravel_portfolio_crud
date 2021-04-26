@@ -15,11 +15,14 @@
                 <i class="{{$facts->icon}}"></i>
                 <span data-toggle="counter-up">{{$facts->number}}</span>
                 <p><strong>{{$facts->title}}</strong> {{$facts->phrase}}</p>
+                <div class="mt-3">
+                    <a href={{route('factsEdit', $facts->id)}}><button class="btn btn-primary">Edit</button></a>
+                </div>
               </div>
             </div>
             @endforeach
   
           </div>
-  
         </div>
+
       </section><!-- End Facts Section -->

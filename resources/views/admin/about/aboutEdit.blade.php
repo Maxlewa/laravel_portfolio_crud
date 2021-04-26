@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 class="text-center mt-4">Modifier les données ABOUT</h1>
-    <form action="{{route('aboutUpdate', $perso->id)}}" method="POST" class="formBlogEdit w-50 mx-auto">
+    <form action="{{route('aboutUpdate', $perso->id)}}" method="POST" class="w-50 mx-auto">
         @csrf
         @method('PUT')
         <div class="form-group">

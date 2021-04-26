@@ -41,9 +41,7 @@
           @endforeach
 
           <div class="mt-3">
-              {{-- <a href={{route('aboutShow', $perso->id)}}><button class="btn btn-success">Show</button></a> --}}
-              <a href={{route('aboutEdit', $perso->id)}}><button class="btn btn-primary">Edit</button></a>
-              {{-- <a href={{route('adminHome')}}><button class="btn btn-primary">Retour à Admin</button></a> --}}
+            <a href={{route('aboutEdit', $perso->id)}}><button class="btn btn-primary">Edit</button></a>
           </div>
 
           

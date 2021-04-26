@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class PersoController extends Controller
 {
-    public function show(Perso $id) {
-        $perso = $id;
-        return view('admin.about.aboutShow', compact('perso'));
-    }
     public function edit(Perso $id) {
         $perso = $id;
         return view('admin.about.aboutEdit', compact('perso'));
