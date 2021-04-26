@@ -22,7 +22,7 @@
             <div class="form-group">
                 <label for="number">Number</label>
                 <input type="number" class="form-control @error ('number') is-invalid @enderror" id="number" name="number">
-                @error('icon')
+                @error('number')
                     <span class="invalid-feedback">
                         <strong>{{$message}}</strong>
                     </span>
