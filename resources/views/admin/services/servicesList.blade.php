@@ -14,10 +14,23 @@
               <div class="icon"><i class={{$services->icon}}></i></div>
               <h4 class="title"><a href="">{{$services->title}}</a></h4>
               <p class="description">{{$services->text}}</p>
+
+              <div class="mb-4">
+                <a href={{route('servicesEdit', $services->id)}}><button class="btn btn-primary mb-2">Edit</button></a>
+                <form method="post" action="{{route('servicesDestroy', $services->id)}}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+              </div>
             </div>
 
             @endforeach
             
+          </div>
+
+          <div class="text-center mt-3">
+            <a href={{route('servicesCreate')}}><button class="btn btn-warning">Ajouter un élément</button></a>
           </div>
   
         </div>

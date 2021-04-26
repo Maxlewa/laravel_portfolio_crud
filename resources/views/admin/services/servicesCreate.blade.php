@@ -4,11 +4,11 @@
     <br>
     <br>
     <div class="text-center">
-        <h1 class="blogCreateH1">Créer un article FACTS</h1>
+        <h1>Créer un article SERVICES</h1>
         <hr>
     </div>
     <div class="container">
-        <form method="POST" action={{route('factsStore')}}>
+        <form method="POST" action={{route('servicesStore')}}>
             @csrf
             <div class="form-group">
                 <label for="icon">Icon</label>
@@ -20,9 +20,9 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="number">Number</label>
-                <input type="number" class="form-control @error ('number') is-invalid @enderror" id="number" name="number">
-                @error('number')
+                <label for="delay">Delay</label>
+                <input type="number" class="form-control @error ('delay') is-invalid @enderror" id="delay" name="delay">
+                @error('delay')
                     <span class="invalid-feedback">
                         <strong>{{$message}}</strong>
                     </span>
@@ -38,9 +38,9 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="phrase">Phrase</label>
-                <input type="text" class="form-control @error ('phrase') is-invalid @enderror" id="phrase" name="phrase">
-                @error('phrase')
+                <label for="text">Text</label>
+                <input type="text" class="form-control @error ('text') is-invalid @enderror" id="text" name="text">
+                @error('text')
                     <span class="invalid-feedback">
                         <strong>{{$message}}</strong>
                     </span>

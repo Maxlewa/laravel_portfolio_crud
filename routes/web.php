@@ -5,6 +5,7 @@ use App\Http\Controllers\FactController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\PersoController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,4 +62,20 @@ Route::put('/portfolio/{id}/update', [PortfolioController::class, 'update'])->na
 // Destroy
 
 Route::delete('/portfolio/{id}/delete', [PortfolioController::class, 'destroy'])->name('portfolioDestroy');
+
+// ---------- SERVICES ----------
+
+// Create - Store
+
+Route::get('/services/create', [ServiceController::class, 'create'])->name('servicesCreate');
+Route::post('/services/store', [ServiceController::class, 'store'])->name('servicesStore');
+
+// Edit - Update
+
+Route::get('/services/{id}/edit', [ServiceController::class, 'edit'])->name('servicesEdit');
+Route::put('/services/{id}/update', [ServiceController::class, 'update'])->name('servicesUpdate');
+
+// Destroy
+
+Route::delete('/services/{id}/delete', [ServiceController::class, 'destroy'])->name('servicesDestroy');
 
