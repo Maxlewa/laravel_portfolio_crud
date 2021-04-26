@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Fact;
 use App\Models\Perso;
 use App\Models\Portfolio;
@@ -17,6 +18,7 @@ class FrontController extends Controller
         $varSkills = Skill::all();
         $varPortfolios = Portfolio::all();
         $varServices = Service::all();
-        return view('home', compact('varPerso', 'varFacts', 'varSkills', 'varPortfolios', 'varServices'));
+        $varContacts = Contact::all();
+        return view('home', compact('varPerso', 'varFacts', 'varSkills', 'varPortfolios', 'varServices', 'varContacts'));
     }
 }

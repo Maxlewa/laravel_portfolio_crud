@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call([SkillSeeder::class]);
         $this->call([PortfolioSeeder::class]);
         $this->call([ServiceSeeder::class]);
+        $this->call([ContactSeeder::class]);
     }
 }
