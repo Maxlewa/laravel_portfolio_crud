@@ -14,8 +14,6 @@ class MailSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('mails')->insert([
-
-        // ]);
+        //
     }
 }
