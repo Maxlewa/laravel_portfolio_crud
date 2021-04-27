@@ -23,7 +23,7 @@ class PortfolioController extends Controller
     }
     public function destroy(Portfolio $id) {
         $id->delete();
-        return redirect()->back();
+        return redirect()->route('adminHome');
     }
     public function edit(Portfolio $id) {
         $portfolio = $id;
