@@ -40,7 +40,7 @@
             </div>
   
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-              <form method="POST" action={{route('mailStore')}} role="form" class="php-email-form">
+              <form method="POST" action={{route('mailStore')}} role="form">
                 @csrf
                 <div class="form-row">
                   <div class="form-group col-md-6">
@@ -69,12 +69,12 @@
                   <textarea class="form-control" rows="10" data-rule="required" data-msg="Please write something for us" name="message" id="message"></textarea>
                   <div class="validate"></div>
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                   <div class="loading">Loading</div>
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
+                </div> --}}
+                <div class="text-center"><button class="btn btn-primary" type="submit">Send Message</button></div>
               </form>
             </div>
   

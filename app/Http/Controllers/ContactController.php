@@ -14,7 +14,7 @@ class ContactController extends Controller
     public function update(Contact $id, Request $request) {
         request()->validate([
             "location" => ["required"],
-            "email" => ["required"],
+            "email" => ["required", "email"],
             "phone" => ["required", "numeric", "min:100000000", "max:999999999"],
             "iframe" => ["required"],
         ]);

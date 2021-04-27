@@ -20,6 +20,6 @@ class MailController extends Controller
         $mails->subject = $request->subject;
         $mails->message = $request->message;
         $mails->save();
-        return redirect()->route('home');
+        return redirect('/' . '#contact');
     }
 }
