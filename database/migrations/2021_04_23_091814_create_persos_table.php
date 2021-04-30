@@ -29,6 +29,7 @@ class CreatePersosTable extends Migration
             $table->text('bio');
             $table->text('italic');
             $table->string('state', 40);
+            $table->string('image', 60);
             $table->timestamps();
         });
     }

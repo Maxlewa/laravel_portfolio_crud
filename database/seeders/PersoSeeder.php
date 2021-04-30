@@ -33,6 +33,7 @@ class PersoSeeder extends Seeder
                 "italic" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua.",
                 "state" => "Available",
+                "image" => "profile-img.jpg",
                 "created_at" => now()
             ]    
         ]);

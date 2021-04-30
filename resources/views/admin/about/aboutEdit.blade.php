@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 class="text-center mt-4">Modifier les données ABOUT</h1>
-    <form action="{{route('aboutUpdate', $perso->id)}}" method="POST" class="w-50 mx-auto">
+    <form action="{{route('aboutUpdate', $perso->id)}}" method="POST" class="w-50 mx-auto" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -70,6 +70,15 @@
         <div class="form-group">
             <label for="italic">Italic</label>
             <input type="text" value="{{$perso->italic}}" class="form-control" id="italic" name="italic" placeholder="{{$perso->italic}}">
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" value="{{$perso->image}}" class="form-control @error ('image') is-invalid @enderror" value={{old('image')}} id="image" name="image" placeholder="{{$perso->image}}" >
+            @error('image')
+                <span class="invalid-feedback">
+                    <strong>{{$message}}</strong>
+                </span>
+            @enderror
         </div>
         <button type="submit" class="btn btn-success">Actualiser</button>
     </form>

@@ -10,7 +10,11 @@
     @foreach ($varPerso as $perso)
     <div class="row">
       <div class="col-lg-4" data-aos="fade-right">
-        <img src={{asset('img/profile-img.jpg')}} class="img-fluid" alt="">
+        @if (File::exists('storage/img/' . $perso->image))
+          <img src={{asset('storage/img/' . $perso->image)}} class="img-fluid" alt="">
+        @else
+          <img src={{asset('img/' . $perso->image)}} class="img-fluid" alt="">
+        @endif
       </div>
       <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
         <h3>{{$perso->job}}</h3>

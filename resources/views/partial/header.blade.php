@@ -7,7 +7,11 @@
 
     @foreach ($varPerso as $perso)
     <div class="profile">
-      <img src={{asset('img/profile-img.jpg')}} alt="" class="img-fluid rounded-circle">
+      @if (File::exists('storage/img/' . $perso->image))
+        <img src={{asset('storage/img/' . $perso->image)}} class="img-fluid rounded-circle" alt="">
+      @else
+        <img src={{asset('img/' . $perso->image)}} class="img-fluid rounded-circle" alt="">
+      @endif
       <h1 class="text-light"><a href="index.html">{{$perso->prenom}} {{$perso->nom}}</a></h1>
       <div class="social-links mt-3 text-center">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>

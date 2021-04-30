@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Perso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PersoController extends Controller
 {
@@ -43,6 +44,16 @@ class PersoController extends Controller
         $perso->bio = $request->bio;
         $perso->italic = $request->italic;
         $perso->state = $request->state;
+
+        if ($request->file('image') != null) {
+            Storage::delete('public/img/' . $perso->image);
+            Storage::put('public/img/', $request->file('image'));
+
+            // DB
+    
+            $perso->image = $request->file('image')->hashName();
+        }
+
         $perso->save();
         return redirect('/admin' . $perso->$id)->with('success', 'Modifications enregistrées');
     }
