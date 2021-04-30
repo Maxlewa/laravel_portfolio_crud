@@ -19,11 +19,11 @@ class PortfolioController extends Controller
         $portfolio->filter = $request->filter;
         $portfolio->image = $request->image;
         $portfolio->save();
-        return redirect()->route('adminHome');
+        return redirect()->route('adminHome', '#portfolio');
     }
     public function destroy(Portfolio $id) {
         $id->delete();
-        return redirect()->route('adminHome');
+        return redirect()->route('adminHome', '#portfolio');
     }
     public function edit(Portfolio $id) {
         $portfolio = $id;

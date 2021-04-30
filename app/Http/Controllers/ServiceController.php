@@ -23,7 +23,7 @@ class ServiceController extends Controller
         $services->title = $request->title;
         $services->text = $request->text;
         $services->save();
-        return redirect()->route('adminHome');
+        return redirect()->route('adminHome', '#services');
     }
     public function destroy(Service $id) {
         $id->delete();
