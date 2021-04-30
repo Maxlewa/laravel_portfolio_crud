@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
@@ -19,11 +20,11 @@ class PortfolioController extends Controller
         $portfolio->filter = $request->filter;
         $portfolio->image = $request->image;
         $portfolio->save();
-        return redirect()->route('adminHome', '#portfolio');
+        return redirect()->route('adminHome');
     }
     public function destroy(Portfolio $id) {
         $id->delete();
-        return redirect()->route('adminHome', '#portfolio');
+        return redirect()->route('adminHome');
     }
     public function edit(Portfolio $id) {
         $portfolio = $id;
@@ -34,10 +35,43 @@ class PortfolioController extends Controller
             "filter" => ["required"],
             "image" => ["required"],
         ]);
+
         $portfolio = $id;
         $portfolio->filter = $request->filter;
-        $portfolio->image = $request->image;
+
+        // STORAGE
+
+        if ($request->file('image') != null) {
+            Storage::delete('public/img/' . $portfolio->image);
+            Storage::put('public/img/', $request->file('image'));
+
+            // DB
+    
+            $portfolio->image = $request->file('image')->hashName();
+        }
+        
         $portfolio->save();
         return redirect('/admin' . $portfolio->$id)->with('success', 'Modifications enregistrées');
+        
+        // request()->validate([
+        //     "filter" => ["required"],
+        //     "image" => ["required"],
+        // ]);
+        // $portfolio = $id;
+        // $portfolio->filter = $request->filter;
+        // $portfolio->image = $request->image;
+        // $portfolio->save();
+        // return redirect('/admin' . $portfolio->$id)->with('success', 'Modifications enregistrées');
+
+        // $image = $id;
+        // // storage
+        // if ($request->file('image') != null) {
+        //     Storage::delete('public/img/' . $image->src);
+        //     Storage::put('public/img/', $request->file('image'));
+
+        //     // DB
+        //     $image->src = $request->file('image')->hashName();
+        //     $image->save();
+        // }
     }
 }

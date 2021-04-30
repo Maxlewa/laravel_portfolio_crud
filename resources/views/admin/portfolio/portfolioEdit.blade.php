@@ -2,12 +2,16 @@
 
 @section('content')
     <h1 class="text-center mt-4">Modifier les données PORTFOLIO</h1>
-    <form action="{{route('portfolioUpdate', $portfolio->id)}}" method="POST" class="w-50 mx-auto">
+    <form action="{{route('portfolioUpdate', $portfolio->id)}}" method="POST" class="w-50 mx-auto" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
             <label for="filter">Filter</label>
-            <input type="text" value="{{$portfolio->filter}}" class="form-control @error ('filter') is-invalid @enderror" value={{old('filter')}} id="filter" name="filter" placeholder="{{$portfolio->filter}}">
+            <select type="text" value="{{$portfolio->filter}}" class="form-control @error ('filter') is-invalid @enderror" value={{old('filter')}} id="filter" name="filter" placeholder="{{$portfolio->filter}}">
+                <option value="filter-web">filter-web</option>
+                <option value="filter-app">filter-app</option>
+                <option value="filter-card">filter-card</option>
+            </select>
             @error('filter')
                 <span class="invalid-feedback">
                     <strong>{{$message}}</strong>
@@ -16,7 +20,7 @@
         </div>
         <div class="form-group">
             <label for="image">Image</label>
-            <input type="texte" value="{{$portfolio->image}}" class="form-control @error ('image') is-invalid @enderror" value={{old('image')}} id="image" name="image" placeholder="{{$portfolio->image}}">
+            <input type="file" value="{{$portfolio->image}}" class="form-control @error ('image') is-invalid @enderror" value={{old('image')}} id="image" name="image" placeholder="{{$portfolio->image}}" >
             @error('image')
                 <span class="invalid-feedback">
                     <strong>{{$message}}</strong>

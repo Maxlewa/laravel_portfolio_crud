@@ -17,47 +17,47 @@ class PortfolioSeeder extends Seeder
         DB::table('portfolios')->insert([
             [
                 "filter" => "filter-app",
-                "image" => "/img/portfolio/portfolio-1.jpg",
+                "image" => "portfolio-1.jpg",
                 "created_at" => now()
             ],
             [
                 "filter" => "filter-web",
-                "image" => "/img/portfolio/portfolio-2.jpg",
+                "image" => "portfolio-2.jpg",
                 "created_at" => now()
             ],
             [
                 "filter" => "filter-app",
-                "image" => "/img/portfolio/portfolio-3.jpg",
+                "image" => "portfolio-3.jpg",
                 "created_at" => now()
             ],
             [
                 "filter" => "filter-card",
-                "image" => "/img/portfolio/portfolio-4.jpg",
+                "image" => "portfolio-4.jpg",
                 "created_at" => now()
             ],
             [
                 "filter" => "filter-web",
-                "image" => "/img/portfolio/portfolio-5.jpg",
+                "image" => "portfolio-5.jpg",
                 "created_at" => now()
             ],
             [
                 "filter" => "filter-app",
-                "image" => "/img/portfolio/portfolio-6.jpg",
+                "image" => "portfolio-6.jpg",
                 "created_at" => now()
             ],
             [
                 "filter" => "filter-card",
-                "image" => "/img/portfolio/portfolio-7.jpg",
+                "image" => "portfolio-7.jpg",
                 "created_at" => now()
             ],
             [
                 "filter" => "filter-card",
-                "image" => "/img/portfolio/portfolio-8.jpg",
+                "image" => "portfolio-8.jpg",
                 "created_at" => now()
             ],
             [
                 "filter" => "filter-web",
-                "image" => "/img/portfolio/portfolio-9.jpg",
+                "image" => "portfolio-9.jpg",
                 "created_at" => now()
             ],
         ]);
