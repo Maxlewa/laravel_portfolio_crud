@@ -15,11 +15,23 @@ class PortfolioController extends Controller
     public function store(Request $request){
         request()->validate([
             "filter" => ["required"],
-            "image" => ["required"],
+            "image" => ["required", "mimes:jpg, jpeg, png", "max:5000"],
         ]);
+
         $portfolio = new Portfolio();
         $portfolio->filter = $request->filter;
-        $portfolio->image = $request->image;
+
+        // STORAGE
+
+        if ($request->file('image') != null) {
+            Storage::delete('public/img/' . $portfolio->image);
+            Storage::put('public/img/', $request->file('image'));
+
+            // DB
+    
+            $portfolio->image = $request->file('image')->hashName();
+        }
+
         $portfolio->save();
         return redirect()->route('adminHome');
     }
