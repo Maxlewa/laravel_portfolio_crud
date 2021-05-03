@@ -37,7 +37,7 @@ class PortfolioController extends Controller
     public function update(Portfolio $id, Request $request) {
         request()->validate([
             "filter" => ["required"],
-            "image" => ["required"],
+            "image" => ["required", "mimes:jpg, jpeg, png", "max:5000"],
         ]);
 
         $portfolio = $id;

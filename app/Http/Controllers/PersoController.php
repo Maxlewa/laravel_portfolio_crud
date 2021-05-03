@@ -28,6 +28,7 @@ class PersoController extends Controller
             "bio" => ["required"],
             "italic" => ["required"],
             "state" => ["required"],
+            "image" => ["required", "mimes:jpg, jpeg, png", "max:5000"]
         ]);
         $perso = $id;
         $perso->nom = $request->nom;

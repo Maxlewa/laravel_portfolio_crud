@@ -17,7 +17,8 @@ class FrontController extends Controller
         $varFacts = Fact::all();
         $varSkills = Skill::all();
         $varPortfolios = Portfolio::all();
-        $varServices = Service::all();
+        // $varServices = Service::all();
+        $varServices = Service::paginate(6)->fragment('services');
         $varContacts = Contact::all();
         return view('home', compact('varPerso', 'varFacts', 'varSkills', 'varPortfolios', 'varServices', 'varContacts'));
     }
