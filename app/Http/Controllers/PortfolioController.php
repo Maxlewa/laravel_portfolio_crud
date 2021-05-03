@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
+    // CREATE
     public function create() {
         return view('admin.portfolio.portfolioCreate');
     }
 
+    // STORE
     public function store(Request $request){
         request()->validate([
             "filter" => ["required"],
@@ -36,16 +38,19 @@ class PortfolioController extends Controller
         return redirect()->route('adminHome');
     }
 
+    // DESTROY
     public function destroy(Portfolio $id) {
         $id->delete();
         return redirect()->route('adminHome');
     }
 
+    // EDIT
     public function edit(Portfolio $id) {
         $portfolio = $id;
         return view('admin.portfolio.portfolioEdit', compact('portfolio'));
     }
     
+    // UPDATE
     public function update(Portfolio $id, Request $request) {
         request()->validate([
             "filter" => ["required"],
